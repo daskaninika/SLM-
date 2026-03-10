@@ -256,7 +256,7 @@ def train():
     print(f"[data]  train windows = {len(train_ds):,}   val windows = {len(val_ds):,}")
 
     train_loader = DataLoader(train_ds, batch_size=hp.batch_size, shuffle=True,
-                              drop_last=True, num_workers=0, pin_memory=False)
+                              drop_last=True, num_workers=0, pin_memory=False)       #change acc to VM core
     val_loader   = DataLoader(val_ds,   batch_size=hp.batch_size, shuffle=False,
                               drop_last=False, num_workers=0, pin_memory=False)
 
