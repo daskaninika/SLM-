@@ -1,0 +1,17 @@
+{
+  "vocab_size": 8000,
+  "train_tokens": 655748,
+  "val_tokens": 17336,
+  "total_tokens": 673084,
+  "train_docs": 34,
+  "val_docs": 3,
+  "total_docs": 37,
+  "validation_frac": 0.1,
+  "seed": 42,
+  "dtype": "uint16",
+  "train_bin": "C:\\Users\\kanidas\\OneDrive - Cisco\\Desktop\\SLM_wData\\artifacts\\train.bin",
+  "val_bin": "C:\\Users\\kanidas\\OneDrive - Cisco\\Desktop\\SLM_wData\\artifacts\\validation.bin",
+  "tokenizer_dir": "C:\\Users\\kanidas\\OneDrive - Cisco\\Desktop\\SLM_wData\\artifacts\\tokenizer",
+  "doc_start_id": 2,
+  "doc_end_id": 3
+}

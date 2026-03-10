@@ -1,0 +1,55 @@
+8 Logical Design: External Connectivity    149
+8.1 VRF Design    149
+8.1.1 Private Cloud VRF Design    150
+8.1.1.1 VRF default (Private Cloud BMC)    151
+Key Features:    152
+8.1.1.2 VRF default (Private Cloud AZ)    152
+8.1.1.3 VRF mgs-in (Private Cloud AZ)    152
+Key Features:    153
+8.1.1.4 VRF infra (Private Cloud AZ)    153
+Key Features:    153
+8.1.1.5 VRF shared-mgs (Private Cloud AZ)    153
+8.1.1.6 VRF soc-services (Private Cloud AZ)    153
+8.1.1.7 VRF obs-be (Private Cloud AZ)    154
+8.1.1.8 VRF vpn01-vpn64    154
+8.1.2 VRF Naming and L3 VNI Numbering    154
+8.2 Border Gateways    154
+8.2.1 Routing Design    155
+L3 Interface    155
+Routing Protocol    156
+Route-Advertisements    157
+8.2.2 Config Template    157
+8.3 Tenant VPN    159
+8.3.1 Routing Design    159
+Routing Interface    160
+Routing Protocol    161
+8.3.1.1 NAT Gateway attachment to the fabric    161
+8.3.1.2 VLAN Pools and interfaces    162
+8.3.1.3 Tenant route sharing    164
+8.3.1.3.1 From NWS-LEAF perspective    164
+8.3.1.3.2 From DC_GW perspective:    165
+8.3.1.4 eBGP between Tenant VRF and Infra VRF via NAT Gateway    166
+Control Plane Advertisements (Ingress)    167
+Ingress Traffic Flow (Failure Scenario)    168
+Control Plane Advertisements (Egress)    169
+Egress Traffic Flow (Normal Scenario)    170
+Egress Traffic Flow (Failure Scenario)    170
+8.4 MGS Firewall    171
+8.4.1 Routing Design    171
+8.4.1.1 A/S pair firewall where the devices are physically connected to two different VPC pairs    172
+Routing Considerations (Traffic Symmetry)    173
+Routing Interface    175
+Routing Protocol    176
+Route-Advertisements    176
+8.4.2 Config Template    177
+Control Plane Advertisements    178
+Asymmetric Issue    179
+Path Manipulation    180
+Control Plane Advertisement (Ingress)    181
+Ingress Traffic Flow (Normal Scenario)    182
+Ingress Traffic Flow (AZ1 Failure Scenario)    182
+Ingress Traffic Flow (AZ1 & AZ2 Failure Scenarios)    183
+Control Plane Advertisement (Egress)    183
+Egress Traffic Flow (Normal Scenario)    184
+Egress Traffic Flow (AZ1 Failure Scenario)    185
+Egress Traffic Flow (AZ1 & AZ2 Failure Scenario)    185

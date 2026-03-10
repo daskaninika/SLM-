@@ -1,0 +1,29 @@
+9 Fabric Traffic Flows    186
+9.1 Traffic Flows (L2)    186
+9.1.1 Intra AZ    186
+9.1.2 Inter-AZ    187
+9.2 Traffic Flow (L3)    188
+9.2.1 Intra-AZ    188
+9.2.2 Inter-AZ    189
+9.3 Traffic Flows (Fabric-AZ)    191
+9.3.1 Tenant VM to VM    191
+9.3.2 Compute to Block Storage (BLK)    192
+9.3.3 Tenant VM to Shared Services (OBJ/NTP/DNS)    192
+9.3.4 Tenant VM to FLS    193
+9.4 Traffic Flow (NWS to Fabric-AZ)    194
+9.4.1 Tenant Remote Office to OBJ & Horizon    194
+9.4.2 Tenant Remote Office to VM    195
+9.5 Traffic Flows (VRF-Lite)    196
+9.5.1 OBJ-Back-End (BE)    196
+9.6 Failure Scenarios (Fabric)    197
+9.6.1 Link & Spine Failures    197
+9.6.2 Fabric Leaf Failures    198
+9.6.3 Core / BGW Failures    198
+9.7 Failure Scenarios    200
+9.7.1 MGS Firewall    200
+Normal Scenario    200
+AZ1 Firewalls Failure    201
+AZ1 & AZ2 Firewalls Failure    201
+9.7.2 NAT Gateway    202
+Normal Scenario    202
+AZ1 NAT-GWs Failure    203

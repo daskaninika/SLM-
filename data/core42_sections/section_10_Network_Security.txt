@@ -1,0 +1,31 @@
+10 Logical Design: Services    205
+10.1 OEMs    205
+10.1.1 HSM    205
+10.1.2 NTP    206
+10.1.3 Dell Block    206
+10.1.4 NetApp (FLS)    208
+10.1.5 Object Storage (OBJ)    210
+10.1.6 Red Hat    212
+10.2 OpenShift eBGP Peering    216
+10.2.1 OPS Cluster (CP Peering)    216
+10.2.1.1 BGP Parameters    217
+10.2.1.2 Route-Advertisement    217
+10.2.1.3 Config-Template    217
+10.2.2 OPS Cluster (Worker Node Peering)    219
+10.2.2.1 BGP Parameters    219
+10.2.2.2 Route-Advertisement    220
+10.2.2.3 Config-Template    220
+10.2.3 Cloud Services Cluster (CP Peering)    221
+10.2.3.1 BGP Parameters    221
+10.2.3.2 Route-Advertisement    221
+10.2.3.3 Config-Template    221
+10.2.4 Cloud Services Cluster (Worker Node Peering)    223
+10.2.4.1 BGP Parameters    223
+10.2.4.2 Route-Advertisement    224
+10.2.4.3 Config-Template    224
+10.2.5 RHOSO Cluster (CP Peering)    225
+10.2.5.1 BGP Parameters    225
+10.2.5.2 Route-Advertisement    225
+10.2.5.3 Config-Template    226
+10.3 Multi-Tenant Security Consideration    227
+10.4 Static Route with HMM Tracking    228

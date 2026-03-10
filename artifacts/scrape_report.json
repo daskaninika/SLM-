@@ -1,0 +1,220 @@
+{
+  "total_urls": 35,
+  "successful": 35,
+  "failed": 0,
+  "skipped_quality": 0,
+  "total_words": 203947,
+  "files": [
+    {
+      "filename": "cisco_doc_01_cisco-ipfm-design-guide.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-ipfm-design-guide.html",
+      "words": 14383,
+      "status": "OK (14383 words, 1008 lines)"
+    },
+    {
+      "filename": "cisco_doc_02_extending-kubernetes-clusters-with-nx-os-vxlan-and-calico.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/extending-kubernetes-clusters-with-nx-os-vxlan-and-calico.html",
+      "words": 3979,
+      "status": "OK (3979 words, 477 lines)"
+    },
+    {
+      "filename": "cisco_doc_03_tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/tenant-routed-multicast-in-nexus9000-vxlan-bgp-evpn-fabrics.html",
+      "words": 16457,
+      "status": "OK (16457 words, 618 lines)"
+    },
+    {
+      "filename": "cisco_doc_04_cisco-vxlan-bgp-evpn-design-and-implementation-guide.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-vxlan-bgp-evpn-design-and-implementation-guide.html",
+      "words": 16884,
+      "status": "OK (16884 words, 999 lines)"
+    },
+    {
+      "filename": "cisco_doc_05_securing-datacenters-with-microsegmentation-and-vxlan-gpo.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/securing-datacenters-with-microsegmentation-and-vxlan-gpo.html",
+      "words": 18122,
+      "status": "OK (18122 words, 1310 lines)"
+    },
+    {
+      "filename": "cisco_doc_06_q-in-vni-over-vxlan-fabric-deployment-guide.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/q-in-vni-over-vxlan-fabric-deployment-guide.html",
+      "words": 7992,
+      "status": "OK (7992 words, 908 lines)"
+    },
+    {
+      "filename": "cisco_doc_07_roce-storage-implementation-over-nxos-vxlan-fabrics.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/roce-storage-implementation-over-nxos-vxlan-fabrics.html",
+      "words": 7423,
+      "status": "OK (7423 words, 413 lines)"
+    },
+    {
+      "filename": "cisco_doc_08_telco-data-center-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/telco-data-center-wp.html",
+      "words": 130,
+      "status": "OK (130 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_09_nextgen-oob-datacenter-mgmt-nw-with-evpn-vxlan.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/nextgen-oob-datacenter-mgmt-nw-with-evpn-vxlan.html",
+      "words": 8292,
+      "status": "OK (8292 words, 424 lines)"
+    },
+    {
+      "filename": "cisco_doc_10_white-paper-c11-739942.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-739942.html",
+      "words": 126,
+      "status": "OK (126 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_11_layer4-layer7-service-redir-ply-based-redir-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/layer4-layer7-service-redir-ply-based-redir-wp.html",
+      "words": 136,
+      "status": "OK (136 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_12_guide-c07-742142.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/guide-c07-742142.html",
+      "words": 132,
+      "status": "OK (132 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_13_whitepaper-c11-742114.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/whitepaper-c11-742114.html",
+      "words": 134,
+      "status": "OK (134 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_14_white-paper-c11-744191.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-744191.html",
+      "words": 134,
+      "status": "OK (134 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_15_white-paper-c11-743731.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-743731.html",
+      "words": 146,
+      "status": "OK (146 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_16_white-paper-c11-743132.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-743132.html",
+      "words": 124,
+      "status": "OK (124 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_17_guide-c07-734107.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/guide-c07-734107.html",
+      "words": 8835,
+      "status": "OK (8835 words, 248 lines)"
+    },
+    {
+      "filename": "cisco_doc_18_cisco-vxlan-multi-site-and-service-node-integration.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-vxlan-multi-site-and-service-node-integration.html",
+      "words": 36354,
+      "status": "OK (36354 words, 755 lines)"
+    },
+    {
+      "filename": "cisco_doc_19_nexus-9000-ai-era-ds.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/data-center-networking/nexus-hyperfabric/nexus-9000-ai-era-ds.html",
+      "words": 124,
+      "status": "OK (124 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_20_nexus-9000-ai-networking-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/networking/cloud-networking-switches/nexus-9000-switches/nexus-9000-ai-networking-wp.html",
+      "words": 134,
+      "status": "OK (134 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_21_nexus-9000-series-switches-ai-clusters-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9000-series-switches-ai-clusters-wp.html",
+      "words": 136,
+      "status": "OK (136 words, 9 lines)"
+    },
+    {
+      "filename": "cisco_doc_22_cisco-addressing-ai-ml-network-challenges.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-addressing-ai-ml-network-challenges.html",
+      "words": 8835,
+      "status": "OK (8835 words, 280 lines)"
+    },
+    {
+      "filename": "cisco_doc_23_cisco-data-center-networking-blueprint-for-ai-ml-application.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-data-center-networking-blueprint-for-ai-ml-applications.html",
+      "words": 6087,
+      "status": "OK (6087 words, 202 lines)"
+    },
+    {
+      "filename": "cisco_doc_24_cisco-trustworthy-technologies-nexus-9000.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-trustworthy-technologies-nexus-9000.html",
+      "words": 2998,
+      "status": "OK (2998 words, 127 lines)"
+    },
+    {
+      "filename": "cisco_doc_25_cvd-for-data-center-networking-blueprint-for-ai.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cvd-for-data-center-networking-blueprint-for-ai.html",
+      "words": 4725,
+      "status": "OK (4725 words, 786 lines)"
+    },
+    {
+      "filename": "cisco_doc_26_nexus-9800-series-switches-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9800-series-switches-wp.html",
+      "words": 124,
+      "status": "OK (124 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_27_acl-tcam-in-cisco-cloud-scale-asics-for-nexus-9000-series-sw.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/acl-tcam-in-cisco-cloud-scale-asics-for-nexus-9000-series-switches-white-paper.html",
+      "words": 10070,
+      "status": "OK (10070 words, 762 lines)"
+    },
+    {
+      "filename": "cisco_doc_28_flexible-fwd-nexus-9000-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/flexible-fwd-nexus-9000-wp.html",
+      "words": 126,
+      "status": "OK (126 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_29_nexus-9000-span-drop-wp.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/nexus-9000-span-drop-wp.html",
+      "words": 120,
+      "status": "OK (120 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_30_cisco-nexus-9300-h-series-switches.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/dcn/whitepapers/cisco-nexus-9300-h-series-switches.html",
+      "words": 9291,
+      "status": "OK (9291 words, 666 lines)"
+    },
+    {
+      "filename": "cisco_doc_31_white-paper-c11-737199.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-737199.html",
+      "words": 134,
+      "status": "OK (134 words, 8 lines)"
+    },
+    {
+      "filename": "cisco_doc_32_white-paper-c11-741518.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-741518.html",
+      "words": 5519,
+      "status": "OK (5519 words, 568 lines)"
+    },
+    {
+      "filename": "cisco_doc_33_white-paper-c11-738488.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-738488.html",
+      "words": 8180,
+      "status": "OK (8180 words, 236 lines)"
+    },
+    {
+      "filename": "cisco_doc_34_b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide_7x_cha.txt",
+      "url": "https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/7-x/programmability/guide/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide_7x/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide_7x_chapter_01110.html",
+      "words": 252,
+      "status": "OK (252 words, 31 lines)"
+    },
+    {
+      "filename": "cisco_doc_35_white-paper-c11-732453.txt",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-732453.html",
+      "words": 7309,
+      "status": "OK (7309 words, 225 lines)"
+    }
+  ],
+  "errors": []
+}

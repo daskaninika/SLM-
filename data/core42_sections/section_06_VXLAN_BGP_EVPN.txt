@@ -1,0 +1,28 @@
+6 VXLAN BGP EVPN    91
+6.1 Design overview    91
+6.2 Overlay Design    92
+6.3 MP-BGP/EVPN Control Plane    93
+6.3.1 MP-BGP EVPN NLRI and L2VPN EVPN Address Family    94
+6.3.1.1 Route-Type 2    95
+6.3.1.2 Route-Type 5    96
+6.3.1.3 Route-Distinguisher Auto    97
+6.3.1.4 Route-Target Auto    97
+6.3.2 Multi-Tenancy with MP-BGP EVPN    97
+6.3.3 MP-BGP EVPN Route Advertisement and Learning    98
+6.3.4 Symmetric IRB    99
+6.3.5 VTEP Peer Discovery and Authentication in MP-BGP EVPN    100
+6.3.6 VXLAN EVPN Distributed Anycast Gateway    102
+6.3.7 VXLAN EVPN ARP Suppression    102
+6.4 VXLAN Data Plane    103
+6.4.1 Layer 2 and Layer 3 VNI    103
+6.5 Underlay Design    108
+6.5.1 Loopbacks    108
+6.5.2 Underlay IGP    111
+6.5.3 Underlay Multicast (PIM-ASM and PIM Anycast RP)    113
+6.6 VPCs    116
+6.6.1 System Infra VLAN    116
+6.6.2 Secondary Address    116
+6.6.3 vPC – Primary Peer Switch    123
+6.6.4 vPC – Secondary Peer Switch    123
+6.7 Firewall attachment to Fabric    124
+6.7.1 NAT Gateway attachment to the fabric    124

@@ -1,0 +1,36 @@
+3 Physical Connectivity    33
+3.1 Solution Physical Design    33
+3.1.1 Overall Physical Design    33
+Availability-Zone 1 (Apollo)    33
+Availability-Zone 2 (Iris)    33
+Availability-Zone 3 (Hermes)    34
+3.1.2 Rack Placements    34
+3.2 Solution Components    35
+3.2.1 Fabric-AZ    35
+3.2.1.1 Core / Super Spines / Border Gateway    35
+N9K-C9364D-GX2A    35
+3.2.1.2 Compute / BLK / OBJ    36
+Spine Switches (N9K-C9364D-GX2A)    36
+Leaf Switches (N9K-93180YC-FX3B)    37
+Interconnect Switches (N9K-C9336C-FX)- Non VXLAN    37
+3.2.1.3 MGS/GPU Block    38
+Spines (N9K-C9332D-GX2B)    38
+Leaf Switches (N9K-93180YC-FX3B)    39
+3.2.2 NWS-AZ    39
+Spines (N9K-C9332D-GX2B)    40
+Leaf switches (N9K-93180YC-FX3B)    40
+3.2.3 BMC Network    41
+Spines (C9500-48Y4C-A)    41
+Leaf (C9300L-48T-4X-E)    41
+3.3 Block Diagrams    42
+3.3.1 Compute    42
+3.3.2 GPU    44
+3.3.3 Block Storage    45
+3.3.4 Object Storage    46
+3.3.4.1 File Storage    48
+3.3.5 Network Services (NWS) Block (AZ1 & AZ2)    49
+3.3.6 Management (MGS) Block    50
+3.3.7 BMC Block    52
+3.3.8 Physical Cabling & Power Considerations    53
+3.4 Port Connectivity Matrix    54
+3.5 Capacity Utilization    54

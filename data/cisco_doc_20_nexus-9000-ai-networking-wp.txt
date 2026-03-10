@@ -1,0 +1,24 @@
+<DOC_START>
+<SOURCE>https://www.cisco.com/c/en/us/products/collateral/networking/cloud-networking-switches/nexus-9000-switches/nexus-9000-ai-networking-wp.html</SOURCE>
+<TYPE>cisco_documentation</TYPE>
+<SCRAPED>2026-03-06</SCRAPED>
+---
+# Why Cisco Nexus 9000 with Nexus Dashboard for AI Networking White Paper
+
+
+# Why Cisco Nexus 9000 with Nexus Dashboard for AI Networking White Paper
+
+
+### Available Languages
+
+
+### Download Options
+
+  • PDF(3.1 MB)View with Adobe Reader on a variety of devices
+
+### Bias-Free Language
+
+The documentation set for this product strives to use bias-free language. For the purposes of this documentation set, bias-free is defined as language that does not imply discrimination based on age, disability, gender, racial identity, ethnic identity, sexual orientation, socioeconomic status, and intersectionality. Exceptions may be present in the documentation due to language that is hardcoded in the user interfaces of the product software, language used based on RFP documentation, or language that is used by a referenced third-party product.Learn moreabout how Cisco is using Inclusive Language.
+
+  •
+<DOC_END>

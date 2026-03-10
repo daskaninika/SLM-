@@ -1,0 +1,52 @@
+<DOC_START>
+<SOURCE>https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/7-x/programmability/guide/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide_7x/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide_7x_chapter_01110.html</SOURCE>
+<TYPE>cisco_documentation</TYPE>
+<SCRAPED>2026-03-06</SCRAPED>
+---
+# Cisco Nexus 9000 Series NX-OS Programmability Guide, Release 7.x -
+   Using Chef Client with Cisco NX-OS  [Cisco Nexus 9000 Series Switches]
+
+
+## About Chef
+
+Chef is an open-source software package that is developed by Chef Software, Inc. The software package is a systems and cloud
+                           infrastructure automation framework that deploys servers and applications to any physical, virtual, or cloud location, no
+                           matter the size of the infrastructure. Each organization consists of one or more workstations, a single server, and every
+                           node that the chef-client has configured and is maintaining. Cookbooks and recipes are used to tell the chef-client how each
+                           node should be configured. The chef-client, which is installed on every node, does the actual configuration.
+
+A Chef cookbook is the fundamental unit of configuration and policy distribution. A cookbook defines a scenario and contains
+                           everything that is required to support that scenario, including libraries, recipes, files, and more. A Chef recipe is a collection
+                           of property definitions for setting state on the device. The details for checking and setting these property states are abstracted
+                           away so that a recipe may be used for more than one operating system or platform. While recipes are commonly used for defining
+                           configuration settings, they also can be used to install software packages, copy files, start services, and more.
+
+The following
+                           		references provide more information from Chef:
+
+
+Topic | Link
+Chef home | https://www.chef.io
+Chef
+                                       					 overview | https://docs.chef.io/chef_overview.html
+Chef
+                                       					 documentation (all) | https://docs.chef.io/
+
+Topic
+
+Link
+
+Chef home
+
+https://www.chef.io
+
+Chef
+                                       					 overview
+
+https://docs.chef.io/chef_overview.html
+
+Chef
+                                       					 documentation (all)
+
+https://docs.chef.io/
+<DOC_END>

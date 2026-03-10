@@ -1,0 +1,62 @@
+12 Identity Service Engine (ISE)    272
+12.1 ISE Key Design Decisions    272
+12.1.1 Use Cases Summary    272
+12.1.2 Use Cases Details    273
+12.1.3 Used Features Summary    274
+12.2 ISE Deployment Summary    275
+12.3 ISE Personas and Roles Overview    275
+12.4 Appliance Overview    276
+12.4.1 Cisco SNS 3700 Series Appliance Overview    276
+12.4.2 Cisco SNS 3700 Series Appliance Front Panel View    276
+12.4.3 Cisco SNS 3700 Series Appliance Back Panel View    277
+12.5 ISE Nodes Deployment Details    278
+12.5.1 Devices Naming and Distribution    278
+12.5.2 Physical Connectivity    278
+12.5.1 Nodes Summary    279
+12.5.2 Nodes Details    279
+12.5.3 Software Version    280
+12.5.4 Architectural Redundancy    280
+12.5.5 ISE 3.0 Licensing    281
+12.6 Identity Stores    282
+12.6.1 Identities    282
+12.6.1.1 Internal Identity Store    283
+12.6.1.2 Internal Identity Store – Endpoints    283
+12.6.1.3 Internal Identity Store – Users    283
+12.6.2 Identity Groups    284
+12.7 External Authentication Identity Sources    284
+12.7.1 LDAP External Identity Source    284
+12.8 Certificates    286
+12.8.1 Certificate Types    286
+12.8.2 ISE Deployment Certificates    287
+12.8.3 Internal Certificate Authority    287
+12.9 Network Access Devices (NADs)    288
+12.10 Device Administration – TACACS+    288
+12.10.1 Design Administration models    289
+12.10.2 Policy Elements    290
+12.10.2.1 TACACS+ Profiles    290
+12.10.2.2 TACACS+ Command Sets    293
+12.10.2.3 Command set syntax    293
+12.10.3 Device Admin policy sets    294
+12.10.3.1 Authentication Protocol Settings    295
+12.10.3.2 Authentication policies    295
+12.10.3.3 Authorization Policies    296
+12.10.4 Performance considerations    296
+12.10.4.1 Single Connect Mode    296
+12.10.4.2 Authorization Cache    296
+12.10.5 Annex    297
+12.10.5.1 General pre-requisites    297
+12.10.5.1.1 TACACS+ configuration for IOS    297
+12.11 Administration and Management    298
+12.11.1 Admin Access Over Command Line Interface (CLI)    298
+12.11.2 Admin Access - Admin Web Portal    298
+12.11.3 Authentication Settings    299
+12.12 Repositories    301
+12.12.1 Operational Backup Admin Node    301
+12.12.2 Operational Data Purging    302
+12.12.3 Auditing and Logging Settings    303
+12.12.4 Local Logging Settings    305
+12.13 ISE Communication matrix    305
+12.13.1 Cisco ISE Administration Node Ports    306
+12.13.2 Cisco ISE Monitoring Node Ports    307
+12.13.3 Cisco ISE Policy Service Node Ports    308
+12.13.4 Firewall Ports Summary    310

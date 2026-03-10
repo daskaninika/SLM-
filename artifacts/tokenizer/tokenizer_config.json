@@ -1,0 +1,24 @@
+{
+  "vocab_size": 8000,
+  "min_frequency": 2,
+  "special_tokens": [
+    "<PAD>",
+    "<UNK>",
+    "<DOC_START>",
+    "<DOC_END>",
+    "<SECTION>",
+    "<|endoftext|>"
+  ],
+  "special_token_ids": {
+    "<PAD>": 0,
+    "<UNK>": 1,
+    "<DOC_START>": 2,
+    "<DOC_END>": 3,
+    "<SECTION>": 4,
+    "<|endoftext|>": 5
+  },
+  "training_files_count": 53,
+  "training_words_approx": 360770,
+  "tokenizer_type": "ByteLevelBPE",
+  "tokenizer_dir": "C:\\Users\\kanidas\\OneDrive - Cisco\\Desktop\\SLM_wData\\artifacts\\tokenizer"
+}

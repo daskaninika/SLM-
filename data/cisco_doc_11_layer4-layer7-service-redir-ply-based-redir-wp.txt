@@ -1,0 +1,24 @@
+<DOC_START>
+<SOURCE>https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/layer4-layer7-service-redir-ply-based-redir-wp.html</SOURCE>
+<TYPE>cisco_documentation</TYPE>
+<SCRAPED>2026-03-06</SCRAPED>
+---
+# Layer 4 to Layer 7 Service Redirection with Enhanced Policy-Based Redirect White Paper
+
+
+# Layer 4 to Layer 7 Service Redirection with Enhanced Policy-Based Redirect White Paper
+
+
+### Available Languages
+
+
+### Download Options
+
+  • PDF(1.8 MB)View with Adobe Reader on a variety of devices
+
+### Bias-Free Language
+
+The documentation set for this product strives to use bias-free language. For the purposes of this documentation set, bias-free is defined as language that does not imply discrimination based on age, disability, gender, racial identity, ethnic identity, sexual orientation, socioeconomic status, and intersectionality. Exceptions may be present in the documentation due to language that is hardcoded in the user interfaces of the product software, language used based on RFP documentation, or language that is used by a referenced third-party product.Learn moreabout how Cisco is using Inclusive Language.
+
+  •
+<DOC_END>

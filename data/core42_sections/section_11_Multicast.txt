@@ -1,0 +1,42 @@
+11 Nexus Dashboard Fabric Controller (NDFC)    230
+11.1 Licensing Information    230
+11.2 Scaling and Compatibility References    230
+11.3 Cluster Overview    231
+11.3.1 Nexus Dashboard Services    231
+11.3.2 Nexus Dashboard Node Roles    232
+11.3.3 Cluster Sizing    232
+11.3.4 Cluster Connectivity    233
+11.3.5 Communication Ports    234
+11.3.6 Nexus Dashboard IP Requirements    241
+11.3.7 Nexus Dashboard Connectivity    241
+11.3.8 Nexus Dashboard Cluster    243
+11.3.9 Required Services    243
+11.4 Nexus Dashboard Fabric Controller (NDFC) Overview    243
+11.4.1 NDFC Scalability    244
+11.4.2 NDFC Management Connectivity    245
+11.4.2.1 Nexus Dashboard Interfaces are Layer-3 Adjacent to Switch Mgmt0 Interface    245
+11.4.3 Persistent IP Addresses    246
+11.4.4 BGP On All Nexus Dashboard Nodes    246
+11.5 NDFC Fabric Types    247
+11.5.1 Multi-Site Domain for VXLAN BGP EVPN Fabrics    247
+11.6 VxLAN EVPN Fabric Requirements    248
+11.7 NDFC Endpoint Locator    255
+11.8 Switch software upgrade using NDFC    256
+11.8.1 Downloading an image from the Software Download Website    257
+11.8.2 Uploading the Image to Nexus Dashboard Fabric Controller    257
+11.8.3 Creating the Image Policies    259
+11.8.4 Upgrade or Downgrade Switches in a Fabric    259
+11.8.4.1 Preparing a Fabric Image Policy    259
+11.8.4.2 Installing or Upgrading Software on Devices in a Fabric    260
+11.9 Replacing faulty Physical Primary ND node without standby node in place    262
+11.10 Adding a standby node to the ND Cluster    264
+11.11 Zero-Touch Provisioning of VxLAN switches    265
+11.11.1.1 Seed Switch    266
+11.11.1.2 DHCP Relay    266
+11.11.1.3 DHCP Scope    267
+11.11.1.4 Adding Switches    267
+11.12 Backup and Restore    268
+11.12.1.1 Backing Up ND and Services Configurations    269
+11.12.1.1.1 Manually Backing Up ND and Services Configurations    269
+11.12.1.1.2 Scheduled Backups    270
+11.12.1.2 Restoring ND and Services Configurations    270
