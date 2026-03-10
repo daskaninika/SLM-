@@ -39,27 +39,28 @@ TOK_DIR     = os.path.join(ARTIFACTS, "tokenizer")
 
 
 # ╭─────────────────────────────────────────────────────────────╮
-# │  HYPERPARAMETERS                                            │
+# │  HYPERPARAMETERS  (tuned for ~4 vCPU, 8 GB RAM, 50 GB disk)  │
 # ╰─────────────────────────────────────────────────────────────╯
 @dataclass
 class HParams:
-    # architecture
+    # architecture (smaller model to fit 8 GB RAM)
     vocab_size:  int   = 8_000
-    d_model:     int   = 384
-    n_heads:     int   = 6
-    n_layers:    int   = 6
-    d_ff:        int   = 1_536      # 4 * d_model
-    block_size:  int   = 256
+    d_model:     int   = 256
+    n_heads:     int   = 4
+    n_layers:    int   = 4
+    d_ff:        int   = 1_024      # 4 * d_model
+    block_size:  int   = 128
     dropout:     float = 0.1
-    # training
-    batch_size:  int   = 16
+    # training (small batch for RAM; use grad_accum for effective batch)
+    batch_size:  int   = 4
+    grad_accum_steps: int = 4      # effective batch = 4 * 4 = 16
     epochs:      int   = 30
     lr:          float = 3e-4
     warmup_pct:  float = 0.05
     patience:    int   = 7
     grad_clip:   float = 1.0
     # data
-    stride:      int   = 128        # overlap between windows
+    stride:      int   = 64         # overlap between windows (smaller for block_size 128)
 
 
 # ╭─────────────────────────────────────────────────────────────╮
@@ -248,6 +249,8 @@ def train():
 
     # ── device ───────────────────────────────────────────────────
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if device.type == "cpu":
+        torch.set_num_threads(4)   # match 4 vCPUs; avoids oversubscription
     print(f"[train] device = {device}")
 
     # ── datasets / loaders ───────────────────────────────────────
@@ -255,8 +258,9 @@ def train():
     val_ds   = TokenDataset(VAL_BIN,   hp.block_size, hp.stride)
     print(f"[data]  train windows = {len(train_ds):,}   val windows = {len(val_ds):,}")
 
+    # num_workers=0 and pin_memory=False to keep RAM low on 8 GB
     train_loader = DataLoader(train_ds, batch_size=hp.batch_size, shuffle=True,
-                              drop_last=True, num_workers=0, pin_memory=False)       #change acc to VM core
+                              drop_last=True, num_workers=0, pin_memory=False)
     val_loader   = DataLoader(val_ds,   batch_size=hp.batch_size, shuffle=False,
                               drop_last=False, num_workers=0, pin_memory=False)
 
@@ -276,7 +280,9 @@ def train():
     optimizer = torch.optim.AdamW(model.parameters(), lr=hp.lr, betas=(0.9, 0.95),
                                   weight_decay=0.1)
 
-    total_steps = hp.epochs * len(train_loader)
+    # With gradient accumulation, optimizer steps = batches / grad_accum_steps per epoch
+    steps_per_epoch = (len(train_loader) + hp.grad_accum_steps - 1) // hp.grad_accum_steps
+    total_steps = hp.epochs * steps_per_epoch
     global_step = 0
     best_val    = float("inf")
     stall       = 0                          # early-stopping counter
@@ -293,35 +299,39 @@ def train():
     t0 = time.time()
     print(f"\n{'='*60}")
     print(f"  Training  –  {hp.epochs} epochs, {len(train_loader)} batches/epoch")
-    print(f"  Total steps = {total_steps:,}")
+    print(f"  Gradient accumulation: {hp.grad_accum_steps} steps (effective batch = {hp.batch_size * hp.grad_accum_steps})")
+    print(f"  Optimizer steps = {total_steps:,}")
     print(f"{'='*60}\n")
 
     for epoch in range(1, hp.epochs + 1):
         model.train()
         epoch_loss, n_batches = 0.0, 0
+        optimizer.zero_grad(set_to_none=True)
+        lr_now = get_lr(global_step, total_steps, hp)
 
         pbar = tqdm(train_loader, desc=f"Epoch {epoch:02d}/{hp.epochs:02d}", leave=True)
-        for xb, yb in pbar:
+        for batch_idx, (xb, yb) in enumerate(pbar):
             xb, yb = xb.to(device), yb.to(device)
 
-            # set LR for this step
-            lr_now = get_lr(global_step, total_steps, hp)
-            for pg in optimizer.param_groups:
-                pg["lr"] = lr_now
-
             _, loss = model(xb, yb)
-            optimizer.zero_grad(set_to_none=True)
-            loss.backward()
-            nn.utils.clip_grad_norm_(model.parameters(), hp.grad_clip)
-            optimizer.step()
+            (loss / hp.grad_accum_steps).backward()
 
             epoch_loss += loss.item()
             n_batches  += 1
-            global_step += 1
+
+            if (batch_idx + 1) % hp.grad_accum_steps == 0 or (batch_idx + 1) == len(train_loader):
+                lr_now = get_lr(global_step, total_steps, hp)
+                for pg in optimizer.param_groups:
+                    pg["lr"] = lr_now
+                nn.utils.clip_grad_norm_(model.parameters(), hp.grad_clip)
+                optimizer.step()
+                optimizer.zero_grad(set_to_none=True)
+                global_step += 1
+
             pbar.set_postfix(loss=f"{loss.item():.4f}", lr=f"{lr_now:.2e}")
 
         avg_train = epoch_loss / max(n_batches, 1)
-        avg_val   = evaluate(model, val_loader, device)
+        avg_val   = evaluate(model, val_loader, device, max_batches=25)  # limit for low-RAM
         elapsed   = time.time() - t0
 
         csv_log.writerow([epoch, f"{avg_train:.6f}", f"{avg_val:.6f}",
