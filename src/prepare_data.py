@@ -6,8 +6,8 @@ Reads every .txt file under  data/
 Loads the ByteLevelBPE tokenizer from  artifacts/tokenizer/
 Encodes all documents → uint16 numpy arrays
 Saves:
-    artifacts/train.bin          (90 % of tokens)
-    artifacts/validation.bin     (10 % of tokens)
+    artifacts/train.bin          (85 % of tokens)
+    artifacts/validation.bin     (15 % of tokens)
     artifacts/data_config.json   (metadata for the training script)
 
 Usage
@@ -47,7 +47,7 @@ VAL_BIN      = ARTIFACT_DIR / "validation.bin"
 CONFIG_JSON  = ARTIFACT_DIR / "data_config.json"
 
 # ── tunables ────────────────────────────────────────────────────────
-VALIDATION_FRACTION = 0.10        # 10 % held-out
+VALIDATION_FRACTION = 0.15        # 15 % held-out
 SEED                = 42
 MIN_FILE_WORDS      = 50          # skip tiny / empty files
 

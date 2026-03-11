@@ -45,22 +45,23 @@ TOK_DIR     = os.path.join(ARTIFACTS, "tokenizer")
 class HParams:
     # architecture (smaller model to fit 8 GB RAM)
     vocab_size:  int   = 8_000
-    d_model:     int   = 256
-    n_heads:     int   = 4
+    d_model:     int   = 192
+    n_heads:     int   = 3
     n_layers:    int   = 4
-    d_ff:        int   = 1_024      # 4 * d_model
+    d_ff:        int   = 768      # 4 * d_model
     block_size:  int   = 128
-    dropout:     float = 0.15   # 0.1–0.2; increase if validation loss diverges (overfitting)
+    dropout:     float = 0.35   # stronger regularization for current data size
+    label_smoothing: float = 0.12   # slightly stronger smoothing to improve generalization
     # training (small batch for RAM; use grad_accum for effective batch)
     batch_size:  int   = 4
-    grad_accum_steps: int = 4      # effective batch = 4 * 4 = 16
-    epochs:      int   = 30
-    lr:          float = 3e-4
-    warmup_pct:  float = 0.05
-    patience:    int   = 7
+    grad_accum_steps: int = 6      # effective batch = 4 * 6 = 24
+    epochs:      int   = 25
+    lr:          float = 1.2e-4   # lower LR for more stable convergence
+    warmup_pct:  float = 0.10     # longer warmup for small dataset training
+    patience:    int   = 5
     grad_clip:   float = 1.0
     # data
-    stride:      int   = 64         # overlap between windows (smaller for block_size 128)
+    stride:      int   = 96         # slightly less overlap to reduce redundancy
 
 
 # ╭─────────────────────────────────────────────────────────────╮
@@ -188,7 +189,8 @@ class SLMTransformer(nn.Module):
         loss = None
         if targets is not None:
             loss = nn.functional.cross_entropy(
-                logits.view(-1, logits.size(-1)), targets.view(-1)
+                logits.view(-1, logits.size(-1)), targets.view(-1),
+                label_smoothing=self.cfg.get("label_smoothing", 0.0),
             )
         return logits, loss
 
@@ -279,19 +281,20 @@ def train():
 
     # ── model ────────────────────────────────────────────────────
     cfg = {
-        "vocab_size": hp.vocab_size,
-        "d_model":    hp.d_model,
-        "n_heads":    hp.n_heads,
-        "n_layers":   hp.n_layers,
-        "d_ff":       hp.d_ff,
-        "block_size": hp.block_size,
-        "dropout":    hp.dropout,
+        "vocab_size":      hp.vocab_size,
+        "d_model":         hp.d_model,
+        "n_heads":         hp.n_heads,
+        "n_layers":        hp.n_layers,
+        "d_ff":            hp.d_ff,
+        "block_size":      hp.block_size,
+        "dropout":         hp.dropout,
+        "label_smoothing": hp.label_smoothing,
     }
     model = SLMTransformer(cfg).to(device)
 
     # ── optimiser ────────────────────────────────────────────────
     optimizer = torch.optim.AdamW(model.parameters(), lr=hp.lr, betas=(0.9, 0.95),
-                                  weight_decay=0.1)
+                                  weight_decay=0.3)   # stronger weight decay to reduce overfitting
 
     # With gradient accumulation, optimizer steps = batches / grad_accum_steps per epoch
     steps_per_epoch = (len(train_loader) + hp.grad_accum_steps - 1) // hp.grad_accum_steps

@@ -34,32 +34,33 @@ class CausalSelfAttention(nn.Module):
         self.n_heads = n_heads
         self.head_dim = d_model // n_heads
 
-        # Single linear projection for Q, K, V  (same as train_model.py)
+        # Names/layout kept identical to train_model.py so checkpoints load.
         self.qkv = nn.Linear(d_model, 3 * d_model)
-        self.out_proj = nn.Linear(d_model, d_model)
+        self.proj = nn.Linear(d_model, d_model)
         self.attn_drop = nn.Dropout(dropout)
         self.proj_drop = nn.Dropout(dropout)
 
-        # Causal mask — upper-triangle = True means "mask out" (same as train_model.py)
-        mask = torch.triu(torch.ones(block_size, block_size), diagonal=1).bool()
-        self.register_buffer("mask", mask)
+        self.register_buffer(
+            "mask",
+            torch.tril(torch.ones(block_size, block_size)).unsqueeze(0).unsqueeze(0),
+        )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         B, T, C = x.shape
-        qkv = self.qkv(x)                                    # (B, T, 3*C)
-        qkv = qkv.reshape(B, T, 3, self.n_heads, self.head_dim)
-        qkv = qkv.permute(2, 0, 3, 1, 4)                    # (3, B, heads, T, head_dim)
-        q, k, v = qkv[0], qkv[1], qkv[2]
+        qkv = self.qkv(x)
+        q, k, v = qkv.split(C, dim=-1)
 
-        scale = math.sqrt(self.head_dim)
-        attn = (q @ k.transpose(-2, -1)) / scale             # (B, heads, T, T)
-        attn = attn.masked_fill(self.mask[:T, :T], float("-inf"))
+        q = q.view(B, T, self.n_heads, self.head_dim).transpose(1, 2)
+        k = k.view(B, T, self.n_heads, self.head_dim).transpose(1, 2)
+        v = v.view(B, T, self.n_heads, self.head_dim).transpose(1, 2)
+
+        attn = (q @ k.transpose(-2, -1)) / math.sqrt(self.head_dim)
+        attn = attn.masked_fill(self.mask[:, :, :T, :T] == 0, float("-inf"))
         attn = F.softmax(attn, dim=-1)
         attn = self.attn_drop(attn)
 
-        out = attn @ v                                        # (B, heads, T, head_dim)
-        out = out.transpose(1, 2).contiguous().reshape(B, T, C)
-        return self.proj_drop(self.out_proj(out))
+        out = (attn @ v).transpose(1, 2).contiguous().reshape(B, T, C)
+        return self.proj_drop(self.proj(out))
 
 
 class TransformerBlock(nn.Module):
@@ -71,17 +72,16 @@ class TransformerBlock(nn.Module):
         self.ln1 = nn.LayerNorm(d_model)
         self.attn = CausalSelfAttention(d_model, n_heads, block_size, dropout)
         self.ln2 = nn.LayerNorm(d_model)
-        self.ffn = nn.Sequential(
+        self.mlp = nn.Sequential(
             nn.Linear(d_model, d_ff),
             nn.GELU(),
-            nn.Dropout(dropout),
             nn.Linear(d_ff, d_model),
             nn.Dropout(dropout),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = x + self.attn(self.ln1(x))
-        x = x + self.ffn(self.ln2(x))
+        x = x + self.mlp(self.ln2(x))
         return x
 
 
@@ -322,9 +322,9 @@ def main():
                         help="Top-P nucleus sampling (default: 0.9)")
     parser.add_argument("--repetition_penalty", type=float, default=1.2,
                         help="Repetition penalty (default: 1.2, 1.0=disabled)")
-    parser.add_argument("--checkpoint", type=str, default="artifacts/checkpoints/best_model.pt",
+    parser.add_argument("--checkpoint", type=str, default="models/best_model.pt",
                         help="Path to model checkpoint")
-    parser.add_argument("--config", type=str, default="artifacts/checkpoints/model_config.json",
+    parser.add_argument("--config", type=str, default="models/model_config.json",
                         help="Path to model config JSON")
     parser.add_argument("--tokenizer_dir", type=str, default="artifacts/tokenizer",
                         help="Directory containing tokenizer files")
