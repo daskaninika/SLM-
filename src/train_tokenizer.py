@@ -146,12 +146,15 @@ def train_tokenizer(training_files, total_words):
         show_progress=True,
     )
 
-    # Save tokenizer files
+    # Save tokenizer files (both formats for compatibility)
     tokenizer.save_model(str(TOKENIZER_DIR))
+    tok_json_path = TOKENIZER_DIR / "tokenizer.json"
+    tokenizer.save(str(tok_json_path))
     print(f"\n  Tokenizer saved to: {TOKENIZER_DIR}")
     print(f"  Files created:")
     print(f"    - {TOKENIZER_DIR / 'vocab.json'}")
     print(f"    - {TOKENIZER_DIR / 'merges.txt'}")
+    print(f"    - {tok_json_path}  (for train_model.py)")
 
     return tokenizer
 

@@ -50,7 +50,7 @@ class HParams:
     n_layers:    int   = 4
     d_ff:        int   = 1_024      # 4 * d_model
     block_size:  int   = 128
-    dropout:     float = 0.1
+    dropout:     float = 0.15   # 0.1–0.2; increase if validation loss diverges (overfitting)
     # training (small batch for RAM; use grad_accum for effective batch)
     batch_size:  int   = 4
     grad_accum_steps: int = 4      # effective batch = 4 * 4 = 16
@@ -236,16 +236,29 @@ def train():
 
     # ── read actual vocab size from tokenizer ────────────────────
     tok_json = os.path.join(TOK_DIR, "tokenizer.json")
+    vocab_json = os.path.join(TOK_DIR, "vocab.json")
+    tok_config = os.path.join(TOK_DIR, "tokenizer_config.json")
     if os.path.isfile(tok_json):
         with open(tok_json, "r", encoding="utf-8") as f:
             tok_data = json.load(f)
         actual_vocab = len(tok_data["model"]["vocab"])
-        # also count added_tokens (special tokens)
         actual_vocab += len(tok_data.get("added_tokens", []))
         print(f"[data]  tokenizer vocab size = {actual_vocab}")
         hp.vocab_size = actual_vocab
+    elif os.path.isfile(vocab_json):
+        with open(vocab_json, "r", encoding="utf-8") as f:
+            vocab = json.load(f)
+        actual_vocab = len(vocab)
+        print(f"[data]  tokenizer vocab size (from vocab.json) = {actual_vocab}")
+        hp.vocab_size = actual_vocab
+    elif os.path.isfile(tok_config):
+        with open(tok_config, "r", encoding="utf-8") as f:
+            cfg = json.load(f)
+        actual_vocab = int(cfg.get("vocab_size", hp.vocab_size))
+        print(f"[data]  tokenizer vocab size (from tokenizer_config.json) = {actual_vocab}")
+        hp.vocab_size = actual_vocab
     else:
-        print(f"[WARN] tokenizer.json not found; using default vocab_size={hp.vocab_size}")
+        print(f"[WARN] tokenizer.json / vocab.json not found; using default vocab_size={hp.vocab_size}")
 
     # ── device ───────────────────────────────────────────────────
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
